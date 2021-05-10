@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<h3>서블릿 열기</h3>
+	<a href="http://localhost:9090/01_SERVLET/Ex01">Ex01서블릿열기</a>
+	<a href="/01_SERVLET/Ex01">Ex01서블릿열기</a>
+	
+</body>
+</html>
