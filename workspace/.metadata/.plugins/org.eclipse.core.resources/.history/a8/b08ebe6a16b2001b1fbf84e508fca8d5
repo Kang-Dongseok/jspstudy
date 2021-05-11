@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+		$(document).ready(function(){
+			
+			$('#date').on('click', function(){
+				const $date = $('#date');
+				location.href = '/01_SERVLET/Quiz01?cmd=date';
+			})
+			
+			$('#time').on('click', function(){
+				const $time = $('#time');
+				location.href = '/01_SERVLET/Quiz01?cmd=time';
+				
+			})
+		})
+	</script>
+</head>
+<body>
+	<!--  오늘 날짜를 경고창으로 보여주고 다시 돌아온다. -->
+	<input type="button" name="date" value="지금 날짜는?" id="date"><br>
+	<!--  지금 시간을 경고창으로 보여주고 다시 돌아온다. -->
+	<input type="button" name="time" value="지금 시간은?" id="time"><br>
+</body>
+</html>
