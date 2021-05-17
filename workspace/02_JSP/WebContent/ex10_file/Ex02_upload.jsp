@@ -14,11 +14,11 @@
 
 	<%
 		/***** 업로드 진행 *****/
-	
+		
 		// 1. 파일이 업로드 될 디렉터리명을 변수로 저장한다.
 		String directory = "archive";
 	
-		// 2. 파일이 업로드 될 디렉터리의 실제 경로
+		// 2. 파일이 업로드 될 디렉터리의 실제 경로를 변수로 저장한다.
 		String realPath = request.getServletContext().getRealPath(directory);
 		
 		// 3. 디렉터리가 생성되지 않았다면 새로 생성한다.
@@ -28,16 +28,16 @@
 		}
 		
 		// 4. 기존 request를 사용하지 않고, MultipartRequest 클래스 타입의 객체를 생성한다.
-		//	    객체를 만들면 업로드가 된다.
+		//    객체를 만들면 업로드가 된다.
 		MultipartRequest multipart = new MultipartRequest(
 				request,   // 기존 request를 전달
 				realPath,  // 업로드 될 경로 지정
 				1024 * 1024 * 10,  // 10MB(최대 업로드 크기) (1024바이트 == 1KB, 1024KB == 1MB)
 				"utf-8",  // 인코딩
-				new DefaultFileRenamePolicy()  // 기본 파일명변경정책 (동일한 파일을 업로드하면 원래 파일명에 숫자 추가)
+				new DefaultFileRenamePolicy()  // 기본파일명변경정책 (동일한 파일을 업로드하면 원래 파일명에 숫자 추가)
 				);
 	%>
-	
+
 	<h3>파일 업로드 결과</h3>
 	<ul>
 		<li>업로드 경로: <%=realPath%></li>
@@ -60,5 +60,9 @@
 		<li>파일 크기: <%=size%>KB</li>
 		<li>수정한 날짜: <%=date%></li>
 	</ul>
+
+	<%-- 다운로드 링크 --%>
+	<a href="/02_JSP/ex10_file/Ex03_download.jsp?directory=<%=directory%>&filename=<%=multipart.getOriginalFileName("filename")%>">다운로드</a>
+
 </body>
 </html>

@@ -4815,3 +4815,99 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 10:14:40.928
 !MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.egit.core 4 0 2021-05-17 11:01:04.855
+!MESSAGE An exception occurred during push on URI https://kds@github.com/Kang-Dongseok/jspstudy.git: https://kds@github.com/Kang-Dongseok/jspstudy.git: not authorized
+!STACK 0
+org.eclipse.jgit.errors.TransportException: https://kds@github.com/Kang-Dongseok/jspstudy.git: not authorized
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:540)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:436)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:127)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1335)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage$2.run(ConfirmationPage.java:211)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.egit.core 4 0 2021-05-17 11:01:22.580
+!MESSAGE An exception occurred during push on URI https://kds@github.com/Kang-Dongseok/jspstudy.git: https://kds@github.com/Kang-Dongseok/jspstudy.git: not authorized
+!STACK 0
+org.eclipse.jgit.errors.TransportException: https://kds@github.com/Kang-Dongseok/jspstudy.git: not authorized
+	at org.eclipse.jgit.transport.TransportHttp.connect(TransportHttp.java:540)
+	at org.eclipse.jgit.transport.TransportHttp.openPush(TransportHttp.java:436)
+	at org.eclipse.jgit.transport.PushProcess.execute(PushProcess.java:127)
+	at org.eclipse.jgit.transport.Transport.push(Transport.java:1335)
+	at org.eclipse.egit.core.op.PushOperation.run(PushOperation.java:191)
+	at org.eclipse.egit.ui.internal.push.ConfirmationPage$2.run(ConfirmationPage.java:211)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 11:05:44.951
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 11:05:44.951
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 11:06:06.327
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 11:06:06.327
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 11:06:06.328
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:16:27.465
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:16:27.467
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:16:54.613
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:16:54.613
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:16:54.614
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:21:53.731
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:21:53.732
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:21:56.705
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:21:56.705
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:21:56.706
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:24:33.761
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:24:33.761
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:24:33.762
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:24:34.563
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:24:34.563
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 12:24:34.564
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 17:38:35.585
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 17:38:35.585
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
+
+!ENTRY org.eclipse.wst.html.ui 1 1 2021-05-17 17:38:35.586
+!MESSAGE No line style provider for org.eclipse.wst.html.SCRIPT
