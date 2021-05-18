@@ -1,0 +1,49 @@
+EL
+
+  1. Expression Language
+  2. 새로운 JSP 스크립트 언어
+  3. 기존의 표현식(<%=표현식%>)을 대체한다.
+  4. <%=표현식%> -> ${표현언어}
+  5. EL로 표현할 수 있는 데이터는 JSP 4개 영역에 저장되어 있어야 한다.
+  6. JSP 4개 영역의 우선 순위
+     (같은 이름이 여러 영역에 존재하는 경우 어느 영역의 데이터를 사용하는가?)
+     높음									  낮음
+     pageContext > request > session > application
+  7. JSP 4개 영역의 스코프 키워드
+     1) pageScope
+     2) requestScope
+     3) sessionScope
+     4) applicationScope
+  8. "속성(Attribute)"으로 데이터를 저장한 경우
+     - pageContext.setAttribute("name", "브레드");
+	   1) ${name}
+       2) ${pageScope.name}
+     - request.setAttribute("age", 50);
+       1) ${age}
+       2) ${requestScope.age}
+     - session.setAttribute("address", "서울시 마포구");
+       1) ${address}
+       2) ${sessionScope.address}
+  9. request에 포함된 parameter
+     1) <input type="text" name="name">  :  ${param.name}
+     2) <input type="checkbox" name="hobbies" value="게임">  :  ${paramValues.hobbies[0]}
+     	<input type="checkbox" name="hobbies" value="카톡">  :  ${paramValues.hobbies[1]}
+  10. EL 내부에서 사용하는 연산자
+     1) +
+     2) -
+     3) *
+     4) /, div : 나누기
+     5) %, mod : 나머지
+	 6) >, gt  : 크다
+	 7) >=, ge : 크거나 같다
+	 8) <, lt  : 작다
+	 9) <=, le : 작거나 같다
+	10) ==, eq : 같다
+    11) !=, ne : 같지 않다
+    12) and
+    13) or
+    14) not
+    15) empty  : 비어있다.
+
+
+

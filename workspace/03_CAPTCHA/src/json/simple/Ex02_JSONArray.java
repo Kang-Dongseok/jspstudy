@@ -6,7 +6,7 @@ package json.simple;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-public class Ex01_JSONObject {
+public class Ex02_JSONArray {
 
 	public static void main(String[] args) {
 		
