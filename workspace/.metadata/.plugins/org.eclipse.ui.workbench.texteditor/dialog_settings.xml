@@ -6,7 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="data"/>
 			<item value="&lt;input type=&quot;submit&quot; value=&quot;회원가입&quot;&gt;"/>
 			<item value="Quiz02_error.jsp"/>
 			<item value="out.println(&quot;&quot;);"/>
