@@ -66,4 +66,29 @@ public class MemberDAO {
 		
 		return result;
 	}
+	/* 3. 로그인*/
+	public MemberDTO login(MemberDTO dto) {  // login.jsp에서 받아온 dto
+		MemberDTO loginDTO = null;
+		try {
+			sql = "SELECT NO, ID, PW, NAME, EMAIL, REGDATE FROM MEMBER WHERE ID = ? AND PW = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getId());
+			ps.setString(2, dto.getPw());
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				loginDTO = new MemberDTO();
+				loginDTO.setNo(rs.getLong(1));
+				loginDTO.setId(rs.getString(2));
+				loginDTO.setPw(rs.getString(3));
+				loginDTO.setName(rs.getString(4));
+				loginDTO.setEmail(rs.getString(5));
+				loginDTO.setRegdate(rs.getDate(6));
+			} 
+		}catch (Exception e) {
+				e.printStackTrace();
+		} finally {
+			DBConnector.getInstance().close(ps, rs);
+		}
+		return loginDTO;
+	}
 }

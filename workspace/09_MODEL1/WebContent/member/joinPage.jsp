@@ -48,6 +48,10 @@
 					return false;
 				}
 			})
+			$('#cancel_btn').on('click', function(){
+				location.href = '../index.jsp';
+				location.href = '/09_MODEL1/index.jsp';
+			})
 			
 		})
 	</script>
