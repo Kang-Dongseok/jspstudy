@@ -3,10 +3,13 @@ package model;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.ModelAndView;
+
 public class ResultCommand implements HomeCommand {
 
 	@Override
-	public String execute(HttpServletRequest request, HttpServletResponse response) {
+	// public String execute(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) {
 		int kor = Integer.parseInt(request.getParameter("kor"));
 		int eng = Integer.parseInt(request.getParameter("eng"));
 		int mat = Integer.parseInt(request.getParameter("mat"));
@@ -25,7 +28,7 @@ public class ResultCommand implements HomeCommand {
 			grade = 'F';
 		}
 		request.setAttribute("grade", grade);
-		return "views/output.jsp";
+		return new ModelAndView("views/output.jsp", false);
 	}
 
 }

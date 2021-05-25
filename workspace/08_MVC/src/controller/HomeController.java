@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import common.ModelAndView;
 import model.HomeCommand;
 
 /**
@@ -37,9 +38,18 @@ public class HomeController extends HttpServlet {
 		
 		HomeCommand command = ModelMapper.getInstance().getModel(cmd);
 		
-		String path = command.execute(request, response);
+		// String path = command.execute(request, response);
+		ModelAndView mav = null;
+		mav = command.execute(request, response);
+		if (mav == null) {
+			return;
+		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
+		if(mav.isRedirect()) {
+			response.sendRedirect(mav.getView());
+		} else {
+			request.getRequestDispatcher(mav.getView()).forward(request, response);
+		}
 	}
 
 	/**
