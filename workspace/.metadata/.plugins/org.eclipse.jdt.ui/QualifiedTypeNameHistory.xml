@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-<fullyQualifiedTypeName name="login.captcha.CaptchaKey"/>
-<fullyQualifiedTypeName name="org.json.simple.parser.ParseException"/>
 <fullyQualifiedTypeName name="login.captcha.CaptchaImage"/>
 <fullyQualifiedTypeName name="com.sun.net.httpserver.HttpsConfigurator"/>
 <fullyQualifiedTypeName name="java.io.File"/>
@@ -47,17 +44,20 @@
 <fullyQualifiedTypeName name="db.util.DBConfig"/>
 <fullyQualifiedTypeName name="java.sql.DriverManager"/>
 <fullyQualifiedTypeName name="com.sun.java.util.jar.pack.Package.Class.Member"/>
-<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.sql.ResultSet"/>
-<fullyQualifiedTypeName name="java.sql.Connection"/>
 <fullyQualifiedTypeName name="dao.MemberDAO"/>
 <fullyQualifiedTypeName name="common.ModelAndView"/>
 <fullyQualifiedTypeName name="dto.MemberDTO"/>
-<fullyQualifiedTypeName name="db.util.DBConnector"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
 <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="dao.BoardDAO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="dto.BoardDTO"/>
+<fullyQualifiedTypeName name="db.util.DBConnector"/>
+<fullyQualifiedTypeName name="dto.PageVO"/>
 </qualifiedTypeNameHistroy>

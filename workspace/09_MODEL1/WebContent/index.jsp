@@ -46,7 +46,7 @@
 				<a href="/09_MODEL1/member/loginPage.jsp">로그인</a>
 			</c:if>
 			<c:if test="${loginDTO ne null}">
-				${loginDTO.name}님 반갑습니다.<br>
+				${loginDTO.name}님 반갑습니다<br>
 				<a href="/09_MODEL1/member/logout.jsp">로그아웃</a><br>
 				<a href="/09_MODEL1/member/myPage.jsp">개인정보수정</a>
 				<c:if test="${loginDTO.id eq 'admin'}">

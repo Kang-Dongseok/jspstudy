@@ -6,8 +6,10 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="Page"/>
 		<list key="findhistory">
+			<item value="page"/>
+			<item value="Page"/>
 			<item value="data"/>
 			<item value="&lt;input type=&quot;submit&quot; value=&quot;회원가입&quot;&gt;"/>
 			<item value="Quiz02_error.jsp"/>

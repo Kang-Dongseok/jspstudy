@@ -31,6 +31,10 @@
 					return false;
 				}
 			})
+			const return_btn = $('#return_btn');
+			return_btn.on('click', function(){
+				location.href = 'myPage.jsp';
+			})
 		})
 	</script>
 	<style>
