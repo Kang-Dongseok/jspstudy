@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource
+		name="jdbc/oracle"
+		type="javax.sql.DataSource"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@127.0.0.1:1521:xe"
+		username="spring"
+		password="1111"
+		maxTotal="8"
+		maxIdle="2"
+		maxWaitMillis="5000"
+	/>
+	<!--
+		DBCP
+		1. DataBase Connection Pool
+		2. 미리 여러 개의 Connection을 만들어 두고 대여/반납하는 방식
+	-->
+	<!--
+		Resource 태그 주요 속성
+		1. name : Resource를 등록하는 이름(java에서 사용한다.)
+		2. type : DBCP을 괸리하는 자바 클래스(DataSource)
+		3. driverClassName : Oracle JDBC
+		4. url : DB 서버 경로
+		5. username/password : 계정 정보
+		6. maxTotal : 최대 Connection의 개수
+		7. maxIdle : 사용하지 않는 Connection의 최대 개수, 음수이면 제한 없음
+		8. maxWaitMillis : 최대 대기 시간, 단위 밀리초, 음수이면 제한 없음
+	-->
+</Context>

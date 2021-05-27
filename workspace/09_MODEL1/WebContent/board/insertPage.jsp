@@ -33,6 +33,7 @@
 			f.submit(function(event){
 				if (author.val() == '') {
 					alert('비정상적인 접근입니다.');
+					event.preventDefault();
 					history.back();
 				} else if (title.val() == '') {
 					alert('제목은 필수입니다.');
