@@ -8,7 +8,7 @@
 	<%
 		request.setCharacterEncoding("utf-8");
 		Optional<String> opt = Optional.ofNullable(request.getParameter("title"));
-		String title =  opt.orElse("환영합니다");
+		String title = opt.orElse("환영합니다");
 		pageContext.setAttribute("title", title);
 	%>
 	<title>${title}</title>
@@ -18,15 +18,15 @@
 </head>
 <body>
 	<div class="container">
-		
+	
 		<header>
-			<a href="#">
-				<img src="assets/images/daum.png" alt="로고" style="width: 200px;">
+			<a href="/10_MODEL2/index.do">
+				<img src="<%=request.getContextPath()%>/assets/images/daum.png" alt="로고" style="width: 200px;">
 			</a>
 			<nav>
 				<ul>
-					<li><a href="#">회원가입</a></li>
-					<li><a href="#">로그인</a></li>
+					<li><a href="/10_MODEL2/joinPage.m">회원가입</a></li>
+					<li><a href="/10_MODEL2/loginPage.m">로그인</a></li>
 					<li><a href="#">마이페이지</a></li>
 				</ul>
 			</nav>

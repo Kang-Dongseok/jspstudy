@@ -2,27 +2,31 @@ package common;
 
 public class ModelAndView {
 
-	private String view;
-	private boolean idRedirect;
+	private String view;  // 응답View(jsp파일명)
+	private boolean isRedirect;  // 이동방식(redirect: true, forward: false)
 	
 	public ModelAndView() {}
-	public ModelAndView(String view, boolean idRedirect) {
+	public ModelAndView(String view, boolean isRedirect) {
 		super();
 		this.view = view;
-		this.idRedirect = idRedirect;
+		this.isRedirect = isRedirect;
 	}
-	
+
 	public String getView() {
 		return view;
 	}
+
 	public void setView(String view) {
 		this.view = view;
 	}
-	public boolean isIdRedirect() {
-		return idRedirect;
+
+	public boolean isRedirect() {
+		return isRedirect;
 	}
-	public void setIdRedirect(boolean idRedirect) {
-		this.idRedirect = idRedirect;
+
+	public void setRedirect(boolean isRedirect) {
+		this.isRedirect = isRedirect;
 	}
-	
+
+
 }

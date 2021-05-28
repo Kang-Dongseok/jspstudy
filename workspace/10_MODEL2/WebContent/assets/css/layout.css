@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 * {
 	padding: 0;
 	margin: 0;
@@ -15,9 +16,10 @@ a {
 nav > ul {
 	list-style-type: none;
 	display: flex;
+	border-bottom: 1px solid gray;
 }
 nav > ul > li {
-	width: 100px;
+	width: 120px;
 	height: 40px;
 }
 nav > ul > li > a {
@@ -34,4 +36,8 @@ nav > ul > li > a:hover {
 .container > section {
 	padding: 20px;
 	height: 600px;
+}
+footer {
+	padding: 5px;
+	border-top: 1px solid gray;
 }
