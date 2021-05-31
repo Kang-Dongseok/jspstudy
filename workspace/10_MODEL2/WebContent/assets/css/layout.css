@@ -13,6 +13,9 @@ a {
 	width: 1000px;
 	margin: 0 auto;
 }
+nav {
+	display: flex;
+}
 nav > ul {
 	list-style-type: none;
 	display: flex;

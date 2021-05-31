@@ -59,7 +59,7 @@
 </script>
 
 <div class="login_form">
-	<form id="f" method="post">
+	<form action="/10_MODEL2/login.m" id="f" method="post">
 		<input type="text" name="id" id="id" placeholder="ID"><br>
 		<span class="message" id="id_message"></span><br>
 		<input type="password" name="pw" id="pw" placeholder="Password"><br>
