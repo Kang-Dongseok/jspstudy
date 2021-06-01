@@ -43,7 +43,7 @@ public class BoardCommandMapper {
 			command = new DeleteBoardCommand();
 			break;
 		case "updateBoardPage.b":
-			command = new UpdateBoardPageCommand(); 
+			command = new UpdateBoardPageCommand();
 			break;
 		case "updateBoard.b":
 			command = new UpdateBoardCommand();

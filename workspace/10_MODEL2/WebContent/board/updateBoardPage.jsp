@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% request.setCharacterEncoding("utf-8"); %>
 <jsp:include page="../layout/header.jsp">
 	<jsp:param value="게시글 수정" name="title" />
@@ -9,7 +9,7 @@
 
 <link rel="stylesheet" href="../assets/css/layout.css">
 <style>
-	.insert_form {
+	.update_form {
 		width: 600px;
 		margin: 0 auto;
 	}
@@ -44,6 +44,7 @@
 </style>
 <script>
 	$(document).ready(function(){
+		/*
 		const f = $('#f');
 		const title = $('#title');
 		const content = $('#content');
@@ -53,13 +54,13 @@
 			file = file.substring(file.lastIndexOf('\\') + 1);
 			if (title.val() == '${param.title}' &&
 				content.val() == '${param.content}' &&
-				file == '${param.filename}'){
+				file == '${param.filename}') {
 				alert('수정할 내용이 없습니다.');
 				event.preventDefault();
 				return false;
 			}
 		})
-		
+		*/
 		const list_btn = $('#list_btn');
 		list_btn.click(function(){
 			location.href = '/10_MODEL2/selectListBoardPage.b';
@@ -67,13 +68,13 @@
 		
 	})
 </script>
-<div class="insert_form">
+<div class="update_form">
 	
 	<form action="/10_MODEL2/updateBoard.b" id="f" method="post" enctype="multipart/form-data">
 		<p class="title">제목</p>
-		<input type="text" id="title"  name="title" value="${param.title}"><br><br>
+		<input type="text" id="title" name="title" value="${param.title}"><br><br>
 		<p class="title">첨부</p>
-		<input type="file" id="filename" name="filename">
+		<input type="file" id="filename" name="filename">&nbsp;&nbsp;&nbsp;
 		<c:if test="${empty param.filename}">
 			[기존 첨부파일: 없음]<br><br>
 		</c:if>

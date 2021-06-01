@@ -8,8 +8,6 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.collections4.map.HashedMap;
-
 import common.ModelAndView;
 import common.Paging;
 import dao.BoardDAO;
@@ -25,15 +23,15 @@ public class FindBoardCommand implements BoardCommand {
 		String query = request.getParameter("query");
 		
 		// DB로 보낼 Map
-		Map<String, String> map = new HashedMap<String, String>();
+		Map<String, String> map = new HashMap<String, String>();
 		map.put("column", column);
 		map.put("query", "%" + query + "%");
 		
 		// DAO의 getFindBoardCount() 메소드 호출
 		// 검색 결과의 개수가 totalRecord
 		int totalRecord = BoardDAO.getInstance().getFindBoardCount(map);
-		System.out.println("검색 개수: " + totalRecord);
 		
+		// 검색 결과를 기반으로 페이징 처리
 		// 페이지 수 처리하기(파라미터로 전달)
 		Optional<String> opt = Optional.ofNullable(request.getParameter("page"));
 		int page = Integer.parseInt(opt.orElse("1"));
@@ -67,6 +65,7 @@ public class FindBoardCommand implements BoardCommand {
 		
 		ModelAndView mav = new ModelAndView("/board/listBoard.jsp", false);  // 포워드 이동
 		return mav;
+		
 	}
 
 }

@@ -41,7 +41,6 @@
 		<input type="button" value="전체목록보기" onclick="location.href='/10_MODEL2/selectListBoardPage.b'">
 	</form><br><br>
 	
-	
 	<%-- 로그인을 해야만 게시글을 작성할 수 있다. --%>
 	<c:if test="${loginDTO != null}">
 		<br>
