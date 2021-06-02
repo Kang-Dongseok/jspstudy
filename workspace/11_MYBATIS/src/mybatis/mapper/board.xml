@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- SQL 작성하는 곳 -->
+
+<!-- namespace는 mapper의 전체경로(패키지 포함)를 작성한다. -->
+<mapper namespace="mybatis.mapper.board">
+
+	<insert id="insertBoard" parameterType="dto.BoardDTO">
+		INSERT INTO
+		 BOARD
+		VALUES (BOARD_SEQ.NEXTVAL,
+				#{author},  <!-- dto.BoardDTO에서 getAuthor()를 실행한다. -->
+				#{title},
+				#{content},
+				#{ip},
+				0,  <!-- 조회수 -->
+				SYSDATE,  <!-- 작성일 -->
+				SYSDATE,  <!-- 최종수정일 -->
+				0,  <!-- 정상: 0, 삭제: -1 -->
+				BOARD_SEQ.CURRVAL,  <!-- 그룹번호: 게시글번호와 같다. -->
+				0,  <!-- 같은 그룹 내부에서 순서를 정하는 순번 -->
+				0  <!-- 게시글(0)/댓글(1 이상) 구분 -->
+		)
+	</insert>
+	<select id="getTotalRecord" resultType="int">
+		SELECT COUNT(NO)
+		  FROM BOARD
+	</select>
+	<select id="selectList" parameterType="Map" resultType="dto.BoardDTO">
+		SELECT B.*
+		  FROM (SELECT ROWNUM AS RN, A.*
+		  		  FROM (SELECT *
+		  		  		  FROM BOARD
+		  		  		 ORDER BY POSTDATE DESC) A ) B
+		 WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}
+	</select>	
+</mapper>

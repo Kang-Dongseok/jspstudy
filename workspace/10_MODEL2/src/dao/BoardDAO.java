@@ -12,6 +12,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import dto.BoardDTO;
+import dto.ReplyDTO;
 
 public class BoardDAO {
 
@@ -284,20 +285,88 @@ public class BoardDAO {
 		return result;
 	}
 	
+	/* 10. 댓글 삽입 */
+	public int insertReply(ReplyDTO dto) {
+		int result = 0;
+		try {
+			con = dataSource.getConnection();
+			sql = "INSERT INTO REPLY VALUES (REPLY_SEQ.NEXTVAL, ?, ?, ?, ?, SYSDATE)";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, dto.getAuthor());
+			ps.setString(2, dto.getContent());
+			ps.setString(3, dto.getIp());
+			ps.setLong(4, dto.getBoardIdx());
+			result = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con, ps, null);
+		}
+		return result;
+	}
 	
+	/* 11. 댓글 개수 반환 */
+	public int getReplyCount(long idx) {
+		int count = 0;
+		try {
+			con = dataSource.getConnection();
+			sql = "SELECT COUNT(IDX) FROM REPLY WHERE BOARD_IDX = ?";
+			ps = con.prepareStatement(sql);
+			ps.setLong(1, idx);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con, ps, rs);
+		}
+		return count;
+	}
 	
+	/* 12. 댓글 리스트 반환 */
+	public List<ReplyDTO> selectListReply(long idx) {
+		List<ReplyDTO> replyList = new ArrayList<ReplyDTO>();
+		try {
+			con = dataSource.getConnection();
+			sql = "SELECT IDX, AUTHOR, CONTENT, IP, BOARD_IDX, POSTDATE FROM REPLY WHERE BOARD_IDX = ? ORDER BY POSTDATE";
+			ps = con.prepareStatement(sql);
+			ps.setLong(1, idx);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				ReplyDTO dto = new ReplyDTO();
+				dto.setIdx(rs.getLong(1));
+				dto.setAuthor(rs.getString(2));
+				dto.setContent(rs.getString(3));
+				dto.setIp(rs.getString(4));
+				dto.setBoardIdx(rs.getLong(5));
+				dto.setPostdate(rs.getDate(6));
+				replyList.add(dto);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con, ps, rs);
+		}
+		return replyList;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	/* 13. 댓글 삭제 */
+	public int deleteReply(long replyIdx) {
+		int result = 0;
+		try {
+			con = dataSource.getConnection();
+			sql = "DELETE FROM REPLY WHERE IDX = ?";
+			ps = con.prepareStatement(sql);
+			ps.setLong(1, replyIdx);
+			result = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con, ps, null);
+		}
+		return result;
+	}
+
 }

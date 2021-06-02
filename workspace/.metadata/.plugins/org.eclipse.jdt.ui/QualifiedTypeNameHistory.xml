@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
-<fullyQualifiedTypeName name="db.util.DBConnector"/>
-<fullyQualifiedTypeName name="dto.PageVO"/>
-<fullyQualifiedTypeName name="dto.MemberLogDTO"/>
-<fullyQualifiedTypeName name="java.sql.Date"/>
-<fullyQualifiedTypeName name="com.sun.xml.internal.ws.encoding.DataHandlerDataSource"/>
-<fullyQualifiedTypeName name="javafx.util.converter.DateStringConverter"/>
-<fullyQualifiedTypeName name="javax.naming.NamingException"/>
-<fullyQualifiedTypeName name="org.json.simple.JSONStreamAware"/>
-<fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONArray"/>
 <fullyQualifiedTypeName name="org.json.simple.JSONObject"/>
 <fullyQualifiedTypeName name="java.util.Scanner"/>
@@ -44,20 +34,30 @@
 <fullyQualifiedTypeName name="org.omg.CORBA.NO_IMPLEMENT"/>
 <fullyQualifiedTypeName name="command.board.SelectListBoardCommand"/>
 <fullyQualifiedTypeName name="command.board.InsertBoardPageCommand"/>
-<fullyQualifiedTypeName name="javax.sql.DataSource"/>
 <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-<fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
-<fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
-<fullyQualifiedTypeName name="java.io.PrintWriter"/>
-<fullyQualifiedTypeName name="common.ModelAndView"/>
 <fullyQualifiedTypeName name="command.board.InsertBoardCommand"/>
 <fullyQualifiedTypeName name="java.util.Optional"/>
-<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+<fullyQualifiedTypeName name="java.lang.Long"/>
+<fullyQualifiedTypeName name="command.board.SelectOneBoardCommand"/>
+<fullyQualifiedTypeName name="org.apache.commons.collections4.map.HashedMap"/>
+<fullyQualifiedTypeName name="jdk.management.resource.internal.TotalResourceContext"/>
+<fullyQualifiedTypeName name="command.board.FindBoardCommand"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="common.Paging"/>
+<fullyQualifiedTypeName name="command.board.DeleteBoardCommand"/>
+<fullyQualifiedTypeName name="command.board.UpdateBoardPageCommand"/>
+<fullyQualifiedTypeName name="command.board.UpdateBoardCommand"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="com.oreilly.servlet.MultipartRequest"/>
 <fullyQualifiedTypeName name="dto.BoardDTO"/>
+<fullyQualifiedTypeName name="javax.sql.DataSource"/>
 <fullyQualifiedTypeName name="dao.BoardDAO"/>
+<fullyQualifiedTypeName name="java.io.PrintWriter"/>
+<fullyQualifiedTypeName name="common.ModelAndView"/>
 </qualifiedTypeNameHistroy>

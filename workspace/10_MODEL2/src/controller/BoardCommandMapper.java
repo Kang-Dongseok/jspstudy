@@ -2,9 +2,11 @@ package controller;
 
 import command.board.BoardCommand;
 import command.board.DeleteBoardCommand;
+import command.board.DeleteReplyCommand;
 import command.board.FindBoardCommand;
 import command.board.InsertBoardCommand;
 import command.board.InsertBoardPageCommand;
+import command.board.InsertReplyCommand;
 import command.board.SelectListBoardCommand;
 import command.board.SelectOneBoardCommand;
 import command.board.UpdateBoardCommand;
@@ -47,6 +49,12 @@ public class BoardCommandMapper {
 			break;
 		case "updateBoard.b":
 			command = new UpdateBoardCommand();
+			break;
+		case "insertReply.b":
+			command = new InsertReplyCommand();
+			break;
+		case "deleteReply.b":
+			command = new DeleteReplyCommand();
 			break;
 		}
 		return command;
