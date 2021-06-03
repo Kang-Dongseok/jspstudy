@@ -8,6 +8,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace는 mapper의 전체경로(패키지 포함)를 작성한다. -->
 <mapper namespace="mybatis.mapper.board">
 
+	<!-- INSERT, UPDATE, DELETE문에 resultType을 작성하지 않는다. -->
+	
 	<insert id="insertBoard" parameterType="dto.BoardDTO">
 		INSERT INTO
 		 BOARD
@@ -25,16 +27,100 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				0  <!-- 게시글(0)/댓글(1 이상) 구분 -->
 		)
 	</insert>
+
 	<select id="getTotalRecord" resultType="int">
 		SELECT COUNT(NO)
 		  FROM BOARD
 	</select>
+	
+	<!-- 1단 댓글만 허용하는 게시판의 정렬 -->
 	<select id="selectList" parameterType="Map" resultType="dto.BoardDTO">
 		SELECT B.*
 		  FROM (SELECT ROWNUM AS RN, A.*
 		  		  FROM (SELECT *
 		  		  		  FROM BOARD
-		  		  		 ORDER BY POSTDATE DESC) A ) B
+		  		  		 ORDER BY GROUPNO DESC, DEPTH ASC, GROUPORD DESC) A ) B
 		 WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}
-	</select>	
+	</select>
+
+	<update id="increseGroupordPreviousReply" parameterType="long">
+		UPDATE BOARD
+		   SET GROUPORD = GROUPORD + 1
+		 WHERE GROUPNO = ${groupno}
+		   AND DEPTH = 1
+	</update>
+
+	<insert id="insertReply" parameterType="dto.BoardDTO">
+		INSERT INTO
+		 BOARD
+		VALUES (BOARD_SEQ.NEXTVAL,
+				#{author},  <!-- dto.BoardDTO에서 getAuthor()를 실행한다. -->
+				#{title},
+				#{content},
+				#{ip},
+				0,  <!-- 조회수 -->
+				SYSDATE,  <!-- 작성일 -->
+				SYSDATE,  <!-- 최종수정일 -->
+				0,  <!-- 정상: 0, 삭제: -1 -->
+				${groupno},
+				${groupord},
+				${depth}
+		)
+	</insert>
+
+	<select id="getFindRecordCount" parameterType="Map" resultType="int">
+		SELECT COUNT(NO)
+		  FROM BOARD
+		 WHERE STATE = 0
+		   AND <if test="column != 'BOTH'">${column} LIKE #{query}</if>
+		       <if test="column == 'BOTH'">TITLE LIKE #{query} OR AUTHOR LIKE #{query}</if>
+		<!--
+			#{column} : 'TITLE' , 'AUTHOR' , 'BOTH'
+			${column} : TITLE , AUTHOR , BOTH
+			#{query}  : '%검색어%'
+		-->
+	</select>
+
+	<select id="findList" parameterType="Map" resultType="dto.BoardDTO">
+		SELECT B.*
+		  FROM (SELECT ROWNUM AS RN, A.*
+		  		  FROM (SELECT *
+		  		  		  FROM BOARD
+		  		  		 WHERE STATE = 0
+		  		  		   AND <if test="column != 'BOTH'">${column} LIKE #{query}</if>
+		  		  		       <if test="column == 'BOTH'">TITLE LIKE #{query} OR AUTHOR LIKE #{query}</if>
+		  		  		 ORDER BY GROUPNO DESC, DEPTH ASC, GROUPORD DESC) A ) B
+		 WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}
+	</select>
+
+	<update id="delete" parameterType="long">
+		UPDATE BOARD
+		   SET STATE = -1
+		 WHERE NO = ${no}
+	</update>
+	
+	<!-- 대댓글만 허용하는 게시판의 정렬 -->
+	<select id="selectList" parameterType="Map" resultType="dto.BoardDTO">
+		SELECT B.*
+		  FROM (SELECT ROWNUM AS RN, A.*
+		  		  FROM (SELECT *
+		  		  		  FROM BOARD
+		  		  		 ORDER BY GROUPNO DESC, GROUPORD ASC) A ) B
+		 WHERE B.RN BETWEEN #{beginRecord} AND #{endRecord}
+	</select>
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
