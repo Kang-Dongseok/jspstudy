@@ -13,7 +13,7 @@ import command.DeleteCommand;
 import command.FindListCommand;
 import command.InsertCommand;
 import command.InsertPageCommand;
-import command.InsertReplyCommand;
+import command.InsertReplyCommand1;
 import command.InsertReplyCommand2;
 import command.InsertReplyCommand3;
 import command.InsertReplyPageCommand;
@@ -57,8 +57,8 @@ public class BoardController extends HttpServlet {
 		case "insertReplyPage.do":
 			command = new InsertReplyPageCommand();
 			break;
-		case "insertReply.do":
-			command = new InsertReplyCommand();
+		case "insertReply1.do":
+			command = new InsertReplyCommand1();
 			break;
 		case "insertReply2.do":
 			command = new InsertReplyCommand2();

@@ -23,7 +23,7 @@ public class SelectListCommand3 implements BoardCommand {
 		Optional<String> opt = Optional.ofNullable(request.getParameter("page"));
 		int page = Integer.parseInt(opt.orElse("1"));
 		
-		int recordPerPage = 5;
+		int recordPerPage = 20;
 		int beginRecord = (page - 1) * recordPerPage + 1;
 		int endRecord = beginRecord + recordPerPage - 1;
 		if (endRecord > totalRecord) {

@@ -16,6 +16,7 @@ public class DeleteCommand implements BoardCommand {
 		int result = BoardDAO.getInstance().delete(no);
 		
 		return new ModelAndView("/11_MYBATIS/board/deleteResult.jsp?result=" + result, true);  // UPDATE 이후에는 리다이렉트
+		
 	}
 
 }

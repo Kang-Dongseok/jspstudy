@@ -12,7 +12,7 @@ public class InsertReplyCommand3 implements BoardCommand {
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		// 1단 댓글 달기
+		// 대댓글 달기
 		
 		String author = request.getParameter("author");
 		String title = request.getParameter("title");
@@ -27,15 +27,17 @@ public class InsertReplyCommand3 implements BoardCommand {
 		replyDTO.setIp(ip);
 
 		// 원글 정보 가져오기 (DAO 작업)
-
+		BoardDTO boardDTO = BoardDAO.getInstance().selectBoard(no);
 		
 		// 가져온 원글(부모) 정보를 이용해서 replyDTO 생성
-		
+		replyDTO.setGroupno(boardDTO.getGroupno());
+		replyDTO.setGroupord(boardDTO.getGroupord() + 1);
+		replyDTO.setDepth(boardDTO.getDepth() + 1);
 		
 		// 같은 그룹의 기존 댓글들 중에서
 		// groupord가 가져온 원글(부모)의 groupord보다 큰 댓글들의
 		// groupord를 1씩 증가
-		
+		BoardDAO.getInstance().increaseGroupordOtherReply(boardDTO);
 		
 		// 댓글 삽입하기
 		int result = BoardDAO.getInstance().insertReply(replyDTO);

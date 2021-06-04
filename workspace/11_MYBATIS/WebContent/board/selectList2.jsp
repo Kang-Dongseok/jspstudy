@@ -26,7 +26,7 @@
 			/*
 				<tr>
 					<td>
-					<a class="link">답글</a>
+						<a class="link">답글</a>
 					</td>
 				</tr>
 				<tr class="insert_reply">
@@ -37,7 +37,7 @@
 			// $.each(배열, function(인덱스, 요소){})
 			$.each(links, function(i, link){
 				$(link).click(function(){  // $(link) == <a class="link">답글</a>
-					//  $(this)  == $(link)
+					// $(this) == $(link)
 					$(this).parent().parent().next().toggleClass('insert_reply');
 					// $(this).parents().parents().next().toggleClass('insert_reply');
 				})
@@ -55,7 +55,9 @@
 			<option value="AUTHOR">작성자</option>
 			<option value="BOTH">내용+작성자</option>
 		</select>
-		<input type="text" name="query"><button>검색</button>
+		<input type="text" name="query">
+		<button>검색</button>
+		<input type="button" value="전체" onclick="location.href='/11_MYBATIS/selectList.do'">
 	</form>
 	<br>
 	
@@ -89,13 +91,13 @@
 								<c:if test="${dto.depth == 0}">
 									<a class="link">답글</a>
 								</c:if>
+								<%--
+								<c:if test="${loginDTO.id == dto.author}">
+									<a href="">삭제</a>
+								</c:if>
+								--%>
 								<a href="/11_MYBATIS/delete.do?no=${dto.no}">삭제</a>
 							</c:if>
-							<!--
-								<c:if test="${loginDTO.id == dto.author}">
-								<a href="">삭제</a>
-								</c:if>
-							-->
 							<c:if test="${dto.state == -1}">
 								삭제된 게시글입니다.
 							</c:if>
@@ -105,13 +107,13 @@
 						<td>${dto.hit}</td>
 					</tr>
 					<tr class="insert_reply">
-						<form action="/11_MYBATIS/insertReply.do" method="post">
+						<form action="/11_MYBATIS/insertReply2.do">
 							<input type="hidden" name="groupno" value="${dto.groupno}">
 							<td><input type="text" name="author" placeholder="작성자"></td>
 							<td><input type="text" name="title" placeholder="제목"></td>
 							<td><input type="text" name="content" placeholder="내용"></td>
 							<td><button>작성</button></td>
-							<td><input type="button" value="취소"></td>
+							<td><input type="button" value="취소">
 						</form>
 					</tr>
 				</c:forEach>

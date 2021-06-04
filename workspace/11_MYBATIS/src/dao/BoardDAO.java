@@ -55,9 +55,9 @@ public class BoardDAO {
 	}
 	
 	/* 4. 같은 그룹 기존 댓글들의 groupord 증가 */
-	public int increseGroupordPreviousReply(long groupno) {
+	public int increaseGroupordPreviousReply(long groupno) {
 		SqlSession ss = factory.openSession(false);  // 직접 커밋하겠다.
-		int result = ss.update("mybatis.mapper.board.increseGroupordPreviousReply", groupno);
+		int result = ss.update("mybatis.mapper.board.increaseGroupordPreviousReply", groupno);
 		if (result > 0) {
 			ss.commit();
 		}
@@ -111,13 +111,23 @@ public class BoardDAO {
 		return list;
 	}
 	
+	/* 10. 원글 가져오기 */
+	public BoardDTO selectBoard(long no) {
+		SqlSession ss = factory.openSession();
+		BoardDTO boardDTO = ss.selectOne("mybatis.mapper.board.selectBoard", no);
+		ss.close();
+		return boardDTO;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
+	/* 11. 원글의 groupord보다 큰 groupord를 가진 댓글의 groupord 증가 */
+	public int increaseGroupordOtherReply(BoardDTO boardDTO) {
+		SqlSession ss = factory.openSession(false);
+		int result = ss.update("mybatis.mapper.board.increaseGroupordOtherReply", boardDTO);
+		if (result > 0) {
+			ss.commit();
+		}
+		ss.close();
+		return result;
+	}
 	
 }

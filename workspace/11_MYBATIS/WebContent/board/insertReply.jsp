@@ -7,7 +7,7 @@
 	<title>Insert title here</title>
 </head>
 <body>
-	<form action="/11_MYBATIS/insertReply.do" method="post">
+	<form action="/11_MYBATIS/insertReply1.do" method="post">
 	
 		<%-- 원글의 그룹번호 --%>
 		<input type="hidden" name="groupno" value="${param.groupno}">

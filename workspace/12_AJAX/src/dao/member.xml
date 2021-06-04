@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- SQL 작성하는 곳 -->
+
+<!-- namespace는 mapper의 전체경로(패키지 포함)를 작성한다. -->
+<mapper namespace="dao.member">
+
+	<select id="login" parameterType="dto.Member" resultType="dto.Member">
+		SELECT NO, ID, PW, NAME, EMAIL, PHONE, REGDATE
+		  FROM MEMBER
+		 WHERE ID = #{id}
+		   AND PW = #{pw}
+	</select>
+
+	<select id="idCheck" parameterType="String" resultType="dto.Member">
+		SELECT ID
+		  FROM MEMBER
+		 WHERE ID = #{id}
+	</select>
+
+	<insert id="join" parameterType="dto.Member">
+		INSERT INTO MEMBER
+		VALUES (MEMBER_SEQ.NEXTVAL, #{id}, #{pw}, #{name}, #{email}, #{phone}, SYSTIMESTAMP)
+	</insert>
+	
+	<update id="updatePw" parameterType="dto.Member">
+		UPDATE MEMBER
+		   SET PW = #{pw}
+		 WHERE NO = ${no}
+	</update>
+
+	<update id="updateMember" parameterType="dto.Member">
+		UPDATE MEMBER
+		   SET NAME = #{name}, PHONE = #{phone}, EMAIL = #{email}
+		 WHERE NO = ${no}
+	</update>
+	
+	<delete id="deleteMember" parameterType="long">
+		DELETE
+		  FROM MEMBER
+		 WHERE NO = ${no}
+	</delete>
+
+</mapper>

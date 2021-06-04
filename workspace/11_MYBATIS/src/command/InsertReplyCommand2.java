@@ -31,13 +31,13 @@ public class InsertReplyCommand2 implements BoardCommand {
 		// 그룹 내부 순서는 1을 가진다.
 		replyDTO.setGroupord(1);
 		// 기존 댓글들의 groupord를 모두 1씩 증가시킨다.
-		BoardDAO.getInstance().increseGroupordPreviousReply(groupno);  // groupno 전달
+		BoardDAO.getInstance().increaseGroupordPreviousReply(groupno);  // groupno 전달
 		
 		// 댓글 삽입하기
 		int result = BoardDAO.getInstance().insertReply(replyDTO);
 		
 		// 이동
-		return new ModelAndView("/11_MYBATIS/board/insertReplyResult.jsp?result=" + result, true);  // 삽입 후에는 반드시 리다이렉트한다.
+		return new ModelAndView("/11_MYBATIS/board/insertReplyResult2.jsp?result=" + result, true);  // 삽입 후에는 반드시 리다이렉트한다.
 		
 	}
 
