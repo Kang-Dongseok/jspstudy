@@ -8,10 +8,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace는 mapper의 전체경로(패키지 포함)를 작성한다. -->
 <mapper namespace="dao.member">
 
-	<select id="selectMemberList" resultType="dto.Member">
-		SELECT NO, ID, NAME, GENDER, ADDRESS
-		  FROM MEMBER
-		 ORDER BY NO DESC
+	<select id="selectMemberList" parameterType="Map" resultType="dto.Member">
+		SELECT B.NO, B.ID, B.NAME, B.GENDER, B.ADDRESS
+		  FROM (SELECT ROWNUM AS RN, A.NO, A.ID, A.NAME, A.GENDER, A.ADDRESS
+		          FROM (SELECT NO, ID, NAME, GENDER, ADDRESS
+		                  FROM MEMBER
+		                 ORDER BY NO DESC) A) B
+		 WHERE B.RN BETWEEN ${beginRecord} AND ${endRecord}
 	</select>
 	
 	<select id="selectMemberByNo" parameterType="long" resultType="dto.Member">

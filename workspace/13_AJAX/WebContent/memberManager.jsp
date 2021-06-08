@@ -15,13 +15,20 @@
 			init();
 			insertMember();
 			deleteMember();
+			fn_paging();
 		})
+		
 		// 함수
+		
+		// 페이징 처리를 위한 현재 페이지
+		var page = 1;
+		
 		// 1. 회원 목록 가져오기
 		function selectMemberList(){
 			$.ajax({
 				url: '/13_AJAX/selectMemberList.do',
 				type: 'get',
+				data: 'page=' + page,
 				dataType: 'json',
 				success: function(result) {
 					/*
@@ -49,12 +56,55 @@
 					// 기존의 목록을 화면에서 제거
 					$('#memberList').empty();
 					
+					// 회원 목록 출력
 					if (result.isExist) {  // 목록이 있다면,
 						generateMemberList(result.list);
 					} else {
 						$('<tr>')
 						.append( $('<td colspan="6">').text('회원 목록이 없습니다.') )
 						.appendTo('#memberList');
+					}
+					
+					// 페이징 출력
+					var paging = result.paging;
+					
+					// 페이징 영역 초기화
+					$('#paging').empty();
+					
+					// 이전
+					if (paging.beginPage <= paging.pagePerBlock) {  // 이전이 없는 1블록
+						// class
+						// 1. disable : 링크가 없다. css 색상 lightgray
+						$('<div class="disable">이전</div>').appendTo('#paging');
+					} else {
+						// class
+						// 1. prev_block : click 이벤트에서 사용
+						// 2. link : 링크가 있다. css 포인터
+						$('<div class="prev_block link" data-page="' + (paging.beginPage - 1) + '">이전</div>').appendTo('#paging');
+					}
+					// 1 2 3 4 5
+					for (let p = paging.beginPage; p <= paging.endPage; p++) {
+						if (paging.page == p) {  // 현재 페이지는 링크가 없다.
+							// class
+							// 1. now_page : 링크가 없다. css 색상 limegreen
+							$('<div class="now_page">' + p + '</div>').appendTo('#paging');
+						} else {
+							// class
+							// 1. go_page : click 이벤트에서 사용
+							// 2. link : 링크가 있다. css 포인터
+							$('<div class="go_page link" data-page="' + (p) + '">' + p + '</div>').appendTo('#paging');
+						}
+					}
+					// 다음
+					if (paging.endPage == paging.totalPage) {  // 링크가 없는 마지막 블록
+						// class
+						// 1. disable : 링크가 없다. css 색상 lightgray
+						$('<div class="disable">다음</div>').appendTo('#paging');
+					} else {
+						// class
+						// 1. next_block : click 이벤트에서 사용
+						// 2. link : 링크가 있다. css 포인터
+						$('<div class="next_block link" data-page="' + (paging.endPage + 1) + '">다음</div>').appendTo('#paging');
 					}
 				},
 				error: function(xhr, status, error) {
@@ -75,6 +125,21 @@
 				.append( $('<input type="hidden" name="no">').val(member.no) )
 				.append( $('<td>').html('<input type="button" value="조회" id="view_btn"><input type="button" value="삭제" id="delete_btn">') )
 				.appendTo('#memberList');
+			})
+		}
+		// 1-2. 페이징의 링크를 처리하는 함수 : 이동할 페이지 번호를 계산하고 selectMemberList() 함수 호출
+		function fn_paging() {
+			$('body').on('click', '.prev_block', function(){
+				page = $(this).data('page');
+				selectMemberList();
+			})
+			$('body').on('click', '.go_page', function(){
+				page = $(this).data('page');
+				selectMemberList();
+			})
+			$('body').on('click', '.next_block', function(){
+				page = $(this).data('page');
+				selectMemberList();
 			})
 		}
 		// 2. 회원 정보 가져오기
@@ -243,6 +308,7 @@
 			width: 1000px;
 		}
 		table {
+			width: 100%;
 			border-collapse: collapse;
 		}
 		td {
@@ -250,6 +316,27 @@
 			text-align: center;
 			border-top: 1px solid gray;
 			border-bottom: 1px solid gray;
+		}
+		/* 페이징 처리 */
+		#paging {
+			width: 50%; 
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			text-align: center;
+		}
+		#paging div {
+			width: 40px;
+			height: 20px;
+		}
+		.disable {
+			color: lightgray;
+		}
+		.link {
+			cursor: pointer;
+		}
+		.now_page {
+			color: limegreen;
 		}
 	</style>
 </head>
@@ -297,9 +384,22 @@
 					</tr>
 				</thead>
 				<tbody id="memberList"></tbody>
+				<tfoot>
+					<tr>
+						<td colspan="6">
+							<div id="paging"></div>
+						</td>
+					</tr>
+				</tfoot>
 			</table>
 		</div>
 	</div>
 
 </body>
 </html>
+
+
+
+
+
+
