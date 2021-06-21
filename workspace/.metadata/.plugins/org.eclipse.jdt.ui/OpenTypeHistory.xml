@@ -7,4 +7,6 @@
 <typeInfo handle="=11_MYBATIS/src&lt;command{BoardCommand.java[BoardCommand" modifiers="513" timestamp="1622610878472"/>
 <typeInfo handle="=12_AJAX/src&lt;command{MemberCommand.java[MemberCommand" modifiers="513" timestamp="1622768732610"/>
 <typeInfo handle="=13_AJAX/src&lt;command{MemberCommand.java[MemberCommand" modifiers="513" timestamp="1623024953645"/>
+<typeInfo handle="=14_BATCH/D:\/spring0303\/jspstudy\/workspace\/14_BATCH\/WebContent\/WEB-INF\/lib\/quartz-2.3.0-SNAPSHOT.jar&lt;org.quartz(Job.class[Job" modifiers="1537" timestamp="1623121488172"/>
+<typeInfo handle="=14_BATCH/src&lt;command{StudentCommand.java[StudentCommand" modifiers="513" timestamp="1623133725271"/>
 </typeInfoHistroy>

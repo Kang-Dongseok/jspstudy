@@ -3,7 +3,7 @@
 <%
 	// session
 	// 1. JSP의 내장 객체이다.
-	// 2. 자바에서는 HttpSession 타입의 클래스 객체ㅋ이다.
+	// 2. 자바에서는 HttpSession 타입의 클래스 객체이다.
 	// 3. 자바에서는 request로부터 session을 구한다.
 	//    HttpSession session = request.getSession();
 	// 4. 서버 측 저장 영역이기 때문에 쿠키에 비해서 보안이 뛰어나다.

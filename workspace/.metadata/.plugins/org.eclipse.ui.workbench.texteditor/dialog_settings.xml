@@ -6,8 +6,11 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="dataTy"/>
+		<item key="selection" value="referer"/>
 		<list key="findhistory">
+			<item value="referer"/>
+			<item value="refe"/>
+			<item value="종료"/>
 			<item value="dataTy"/>
 			<item value="dataty"/>
 			<item value="ㅇdataty"/>
@@ -20,9 +23,6 @@
 			<item value="Paging"/>
 			<item value="paging"/>
 			<item value="page"/>
-			<item value="Page"/>
-			<item value="data"/>
-			<item value="&lt;input type=&quot;submit&quot; value=&quot;회원가입&quot;&gt;"/>
 		</list>
 		<list key="replacehistory">
 			<item value="replyDTO"/>
