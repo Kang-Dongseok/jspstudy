@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="referer"/>
+		<item key="selection" value="sq"/>
 		<list key="findhistory">
+			<item value="sq"/>
 			<item value="referer"/>
 			<item value="refe"/>
 			<item value="종료"/>
@@ -22,7 +23,6 @@
 			<item value="mess"/>
 			<item value="Paging"/>
 			<item value="paging"/>
-			<item value="page"/>
 		</list>
 		<list key="replacehistory">
 			<item value="replyDTO"/>

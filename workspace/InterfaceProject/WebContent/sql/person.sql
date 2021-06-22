@@ -7,3 +7,4 @@ CREATE TABLE PERSON
 	BIRTHDAY VARCHAR2(10),
 	REGDATE DATE
 );
+select * from person;

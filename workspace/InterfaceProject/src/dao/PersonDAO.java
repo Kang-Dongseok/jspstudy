@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,7 +76,7 @@ public class PersonDAO {
 		return list;
 	}
 	
-	public int insertPerson(Person person) throws SQLException {
+	public int insertPerson(Person person) throws SQLIntegrityConstraintViolationException, SQLException {
 		int count = 0;
 		con = getConnection();
 		sql = "INSERT INTO PERSON VALUES (?, ?, ?, ?, SYSDATE)";
@@ -87,6 +88,46 @@ public class PersonDAO {
 		count = ps.executeUpdate();
 		close(con, ps, null);
 		return count;
+	}
+	
+	public int deletePerson(String sno) {
+		int count = 0;
+		try {
+			con = getConnection();
+			sql = "DELETE FROM PERSON WHERE SNO = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, sno);
+			count = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con, ps, null);
+		}
+		return count;
+	}
+	
+	public Person selectPersonBySno(String sno) {
+		Person person = null;
+		try {
+			con = getConnection();
+			sql = "SELECT SNO, NAME, AGE, BIRTHDAY, REGDATE FROM PERSON WHERE SNO = ?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, sno);
+			rs = ps.executeQuery();
+			if (rs.next()) {
+				person = new Person();
+				person.setSno(rs.getString(1));
+				person.setName(rs.getString(2));
+				person.setAge(rs.getInt(3));
+				person.setBirthday(rs.getString(4));
+				person.setRegdate(rs.getDate(5));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(con, ps, rs);
+		}
+		return person;
 	}
 	
 }
